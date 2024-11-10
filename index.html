@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Aditya Travels</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="main">
+        <div class="navMenu">
+            <img src="./images/travels1.png" alt="Brand Logo" height="60" />
+            <ul class="dropdownMenu">
+                <li class="dropdownMenuList">Home</li>
+                <li class="dropdownMenuList">Book</li>
+                <li class="dropdownMenuList">Packages
+                    <ul class="dropdown">
+                        <li>United States</li>
+                        <li>India</li>
+                        <li>France</li>
+                        <li>Germany</li>
+                    </ul>
+                </li>
+                <li class="dropdownMenuList">Services</li>
+                <li class="dropdownMenuList">Gallery</li>
+                <li class="dropdownMenuList">About</li>
+            </ul>
+            <div class="authButtons">
+                <a  href="./login.html" target="_blank">
+                    <button  class="bookBtn">Login</button>
+
+                </a>
+        
+               <a  href="./register.html" target="_blank"> <button class="bookBtn">Register</button></a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="containerBorder">
+
+                <h1>Welcome to Aditya Travels</h1>
+                <h2 class="country-name"></h2>
+                <button class="bookBtn"><b>Book Now</b></button>
+            </div>
+        </div>
+        <div class="container3">
+            <div class="logoBanner">
+                <img src="./images/bg11.png">
+            </div>
+            <div class="formDetails">
+                <form onsubmit="handleSubmit(event)">
+                    <div class="inputDetails">
+                        <label class="label">Where to Go</label>
+                        <select required>
+                            <option selected disabled>Select Country</option>
+                            <option>France</option>
+                            <option>Germany</option>
+                            <option>Scottland</option>
+                        </select>
+                    </div>
+                    <div class="inputDetails">
+                        <label for="" class="label">How Many Person</label>
+                        <input required type="number" min="0" max="30" oninput="this.value = Math.abs(this.value)">
+                    </div>
+                    <div class="inputDetails">
+                        <label for="" class="label">Start Date</label>
+                        <input required type="datetime-local" class="form-control col-md-6" name="startDate" required
+                            onchange="updateEndDate()">
+                    </div>
+                    <div class="inputDetails">
+                        <label for="" class="label">End Date</label>
+                        <input required type="datetime-local" class="form-control col-md-6" name="endDate" required>
+                    </div>
+                    <div class="inputDetails">
+                        <label for="" class="label">Description</label>
+                        <textarea required maxlength="50"></textarea>
+                    </div>
+                    <div class="inputDetails">
+                        <button type="submit" class="bookBtn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="container2bg">
+            <div class="container2">
+                <div class="cards">
+
+                    <div class="card ">
+                        <img class="cardImage " src="./images/card/london.jpg" />
+                        <div class="CardDetails">
+                            <div class="CardTexts">
+                                <h2>London</h2>
+                                <p><b>The Tower of London:</b> A historic fortress and former royal palace, famous for
+                                    its
+                                    crown
+                                    jewels and rich history. </p>
+                                <div class="cardHeading">
+                                    <div class="cardSubTitle">
+                                        <p>Price: $250</p>
+                                        <p>Rating: ★★★★☆</p>
+                                    </div>
+                                    <div class="cardButton">
+                                        <button class="bookBtn">Book Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card ">
+                        <img class="cardImage " src="./images/card/paris.jpeg" />
+                        <div class="CardDetails">
+                            <div class="CardTexts">
+                                <h2>Paris</h2>
+                                <p><b>Eiffel Tower: </b>An iconic iron tower that offers stunning panoramic views of the
+                                    City of
+                                    Light</p>
+                                <div class="cardHeading">
+                                    <div class="cardSubTitle">
+                                        <p>Price: $350</p>
+                                        <p>Rating: ★★★★☆</p>
+                                    </div>
+                                    <div class="cardButton">
+                                        <button class="bookBtn">Book Now
+
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card ">
+                        <img class="cardImage " src="./images/card/capetown.png" />
+                        <div class="CardDetails">
+                            <div class="CardTexts">
+                                <h2>CapeTown</h2>
+                                <p><b>Table Mountain:</b> An iconic flat-topped mountain offering breathtaking views and
+                                    a
+                                    variety of hiking trails. </p>
+
+                                <div class="cardHeading">
+                                    <div class="cardSubTitle">
+                                        <p>Price: $700</p>
+                                        <p>Rating: ★★★★☆</p>
+                                    </div>
+                                    <div class="cardButton">
+                                        <button class="bookBtn">Book Now
+
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container2">
+
+                <div class="cards">
+
+                    <div class="card ">
+                        <img class="cardImage " src="./images/card/sweden.jpg" />
+                        <div class="CardDetails">
+                            <div class="CardTexts">
+                                <h2>sweden</h2>
+                                <p><b>Sweden :</b> is renowned for its progressive society, stunning nature, and rich
+                                    history in design and innovation</p>
+                                <div class="cardHeading">
+                                    <div class="cardSubTitle">
+                                        <p>Price: $648</p>
+                                        <p>Rating: ★★★★☆</p>
+                                    </div>
+                                    <div class="cardButton">
+                                        <button class="bookBtn">Book Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card ">
+                        <img class="cardImage " src="./images/card/usa1.jpg" />
+                        <div class="CardDetails">
+                            <div class="CardTexts">
+                                <h2>U.S.A</h2>
+                                <p><b>The USA :</b>
+                                    is a diverse nation known for its cultural influence, vast landscapes, and dynamic
+                                    economy.
+
+
+
+                                </p>
+                                <div class="cardHeading">
+                                    <div class="cardSubTitle">
+                                        <p>Price: $599</p>
+                                        <p>Rating: ★★★★☆</p>
+                                    </div>
+                                    <div class="cardButton">
+                                        <button class="bookBtn">Book Now
+
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card ">
+                        <img class="cardImage " src="./images/card/finland.jpg" />
+                        <div class="CardDetails">
+                            <div class="CardTexts">
+                                <h2>FinLand</h2>
+                                <p><b>Finland :</b>is known for its breathtaking natural beauty, high quality of life,
+                                    and strong emphasis on education and innovation. </p>
+
+                                <div class="cardHeading">
+                                    <div class="cardSubTitle">
+                                        <p>Price: $280</p>
+                                        <p>Rating: ★★★★☆</p>
+                                    </div>
+                                    <div class="cardButton">
+                                        <button class="bookBtn">Book Now
+
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container2">
+
+                <div class="cards">
+
+                    <div class="card ">
+                        <img class="cardImage " src="./images/card/australia.jpg" />
+                        <div class="CardDetails">
+                            <div class="CardTexts">
+                                <h2>Australia</h2>
+                                <p><b>Australia : </b>is a diverse country famous for its stunning landscapes, unique
+                                    wildlife, and vibrant cities.
+
+
+
+                                </p>
+                                <div class="cardHeading">
+                                    <div class="cardSubTitle">
+                                        <p>Price: $950</p>
+                                        <p>Rating: ★★★★☆</p>
+                                    </div>
+                                    <div class="cardButton">
+                                        <button class="bookBtn">Book Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card ">
+                        <img class="cardImage " src="./images/card/japan.jpg" />
+                        <div class="CardDetails">
+                            <div class="CardTexts">
+                                <h2>Japan</h2>
+                                <p><b>Japan :</b>is a unique blend of ancient traditions and modern technology,
+                                    beautiful landscapes.</b></p>
+                                <div class="cardHeading">
+                                    <div class="cardSubTitle">
+                                        <p>Price: $250</p>
+                                        <p>Rating: ★★★★☆</p>
+                                    </div>
+                                    <div class="cardButton">
+                                        <button class="bookBtn">Book Now
+
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card ">
+                        <img class="cardImage " src="./images/card/england.jpg" />
+                        <div class="CardDetails">
+                            <div class="CardTexts">
+                                <h2>England</h2>
+                                <p><b>England :</b>is a historic and culturally rich country known for its iconic
+                                    landmarks, diverse landscapes, and contributions to literature, art, and science
+                                </p>
+
+                                <div class="cardHeading">
+                                    <div class="cardSubTitle">
+                                        <p>Price: $800</p>
+                                        <p>Rating: ★★★★☆</p>
+                                    </div>
+                                    <div class="cardButton">
+                                        <button class="bookBtn">Book Now
+
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <h2 style="margin-top: 10px;">Our Service</h2>
+        <div class="container4">
+            <div class="box">
+                <div class="service">
+                    <h1>Affordable Hotel</h1>
+                    <img src="./images/icons/hotel.png" width="70px">
+                </div>
+                <p>Enjoy comfortable stays at budget-friendly prices.
+            </div>
+
+            <div class="box">
+                <div class="service">
+                    <h1>Food & Drinks</h1>
+                    <img src="./images/icons/food.png" width="80px">
+                </div>
+                <p>Delicious meals and refreshing beverages to satisfy your cravings.
+            </div>
+
+            <div class="box">
+                <div class="service">
+                    <h1>Safety Guide</h1>
+                    <img src="./images/icons/for-safety-rules-64.png" width="50px">
+                </div>
+                <p>Your safety is our priority. Get expert guidance throughout your stay.
+
+            </div>
+            <div class="box">
+                <div class="service">
+                    <h1>City Tours</h1>
+                    <img src="./images/icons/tour.png" width="80px">
+                </div>
+                <p>Explore the best attractions with our guided city tours.
+            </div>
+            <div class="box">
+                <div class="service">
+                    <h1>Transport Services</h1>
+                    <img src="./images/icons/transport.png" width="70px">
+                </div>
+                <p>Convenient transport options to make your journey smooth.
+            </div>
+            <div class="box">
+                <div class="service">
+                    <h1>Wellness & Spa</h1>
+                    <img src="./images/icons/spa1.png" width="60px">
+
+                    <p>Relax and rejuvenate with our top-notch wellness services.
+                </div>
+            </div>
+        </div>
+        <h2 style="margin-top: 10px;">Our Gallery</h2>
+
+        <div class="container5">
+            <div class="galaryBox">
+                <img class="galaryItem" src="./images/package/pa1.jpg" alt="Image 1" />
+                <img class="galaryItem" src="/images/package/ps10.jpg" alt="Image 2" />
+                <img class="galaryItem" src="/images/package/pa6.jpg" alt="Image 3" />
+            </div>
+            <div class="galaryBox">
+                <img class="galaryItem" src="/images/package/ps9.jpg" alt="Image 4" />
+                <img class="galaryItem" src="/images/package/pa5.jpg" alt="Image 5" />
+                <img class="galaryItem" src="/images/package/pa7.jpg" alt="Image 6" />
+            </div>
+        </div>
+        
+  =
+        <h2 style="margin-top: 10px;">About US</h2>
+        <div class="container6">
+            <div class="conLeft">
+                <img src="./images/package/ps11.jpg" />
+            </div>
+            <div class="conRight">
+                <p>
+                    Established in 2024, our company has been dedicated to delivering exceptional experiences and
+                    services.
+
+                    We pride ourselves on innovation, quality, and customer satisfaction.
+
+                    Contact us for more details about our services and projects.
+                </p>
+            </div>
+        </div>
+        <div class="container7">
+            
+            <p>© 2024 Aditya Travels. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./script.js"></script>
+</body>
+
+</html>

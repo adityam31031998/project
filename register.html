@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegisterPage</title>
+    <link rel="stylesheet" href="./register.css">
+</head>
+
+<body>
+    <div class="registerContainer">
+        <div class="registerBox">
+            <div class="regLeft">
+                <h1>Welcome!</h1>
+                <p>Join us today. Please fill out the form to register.</p>
+            </div>
+            <div class="regRight">
+                <form onsubmit="handleSubmit(event)">
+                    <h2>Create Account</h2>
+                    <div class="fields">
+                        <div class="fname">
+                            <label for="fullName">Full Name</label>
+                            <input id="fullName" type="text" name="fullName" required>
+                            <span class="fnameError"></span>
+                        </div>
+                        <div class="fname">
+                            <label for="contactNumber">Contact Number</label>
+                            <input id="contactNumber" type="text" name="contactNumber" required>
+                            <span class="contactError"></span>
+                        </div>
+                    </div>
+                    <div class="fname">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" name="email" required>
+                        <span class="emailError"></span>
+                    </div>
+                    <div class="fname">
+                        <label for="password">Password</label>
+                        <input id="password" type="password" name="password" required>
+                        <span class="passwordError"></span>
+                    </div>
+                    <div class="fields">
+                        <div class="fname">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="gender" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="fname">
+                            <label for="dob">Date of Birth</label>
+                            <input id="dob" type="date" name="dob" required>
+                            <span class="dobError"></span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <button type="submit" class="regBtn">Register</button>
+
+                       <a href="./login.html"> <span>Already have an account..</span></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function setMaxDOB() {
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = today.getMonth() + 1;
+            var day = today.getDate();
+
+            var maxDOB = (year - 18) + '-' + (month < 10 ? '0' + month : month) + '-' + (day < 10 ? '0' + day : day);
+
+            document.getElementById('dob').setAttribute('max', maxDOB);
+        }
+        setMaxDOB();
+
+        function handleSubmit(e) {
+            e.preventDefault();
+
+            var fullName = document.getElementById("fullName").value;
+            var contactNumber = document.getElementById("contactNumber").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var gender = document.getElementById("gender").value;
+            var dob = document.getElementById("dob").value;
+
+            var valid = true;
+
+            if (fullName.length <= 3) {
+                document.querySelector('.fnameError').innerText = "Full name must be longer than 3 characters.";
+                valid = false;
+            } else {
+                document.querySelector('.fnameError').innerText = "";
+            }
+
+            var contactRegex = /^[^&+]*$/;
+            if (!contactRegex.test(contactNumber)) {
+                document.querySelector('.contactError').innerText = "Contact number should not contain '&' or '+'." ;
+                valid = false;
+            } else {
+                document.querySelector('.contactError').innerText = "";
+            }
+
+            var emailRegex = /^[^@]+@[^@]+\.[^@]+$/;
+            if (!emailRegex.test(email)) {
+                document.querySelector('.emailError').innerText = "Email must contain '@' and '.'." ;
+                valid = false;
+            } else {
+                document.querySelector('.emailError').innerText = "";
+            }
+
+            var passwordError = document.querySelector('.passwordError');
+            passwordError.innerText = ''; 
+
+            if (password.length < 9) {
+                passwordError.innerText = "Password must be at least 9 characters long.";
+                valid = false;
+            }
+            else if (![...password].some(char => char === char.toUpperCase() && /[a-zA-Z]/.test(char))) {
+                passwordError.innerText = "Password must contain at least one uppercase letter.";
+                valid = false;
+            }
+            else if (![...password].some(char => !isNaN(char) && char !== ' ')) {
+                passwordError.innerText = "Password must contain at least one number.";
+                valid = false;
+            }
+
+            var dobDate = new Date(dob);
+            var age = new Date().getFullYear() - dobDate.getFullYear();
+            var m = new Date().getMonth() - dobDate.getMonth();
+            if (m < 0 || (m === 0 && new Date().getDate() < dobDate.getDate())) {
+                age--;
+            }
+
+            if (age < 18) {
+                document.querySelector('.dobError').innerText = "You must be at least 18 years old.";
+                valid = false;
+            } else {
+                document.querySelector('.dobError').innerText = "";
+            }
+        }
+    </script>
+</body>
+
+</html>
